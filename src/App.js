@@ -9,6 +9,7 @@ function App() {
   const [long, setLong] = useState([]);
   const [weatherData, setWeatherData] = useState([])
 
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function(position) {
       setLat(position.coords.latitude);
@@ -21,7 +22,6 @@ function App() {
       .then(res => res.json())
       .then(result => {
         setWeatherData(result)
-        console.log(result);
       });
   },[])
 

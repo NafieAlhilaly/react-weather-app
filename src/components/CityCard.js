@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Paper, Grid, CardHeader, Divider } from '@mui/material';
+import { getIcon } from "../GetIcon"
 
 
 export default function MainCard({weatherData}) {
@@ -18,7 +19,7 @@ export default function MainCard({weatherData}) {
           color="textSecondary"
           align={"left"}
         >
-          🌧️ {weatherData.name}
+          {getIcon(weatherData.weather[0].main)} {weatherData.name}
         </Typography>}
       />
       <CardContent>
