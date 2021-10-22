@@ -1,24 +1,36 @@
 import logo from './logo.svg';
+import MainPage from './Pages/HomePage';
 import './App.css';
+import React, { useEffect, useState } from "react";
+import Header from './components/Header';
 
 function App() {
+  const [lat, setLat] = useState([]);
+  const [long, setLong] = useState([]);
+  const [weatherData, setWeatherData] = useState([])
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      setLat(position.coords.latitude);
+      setLong(position.coords.longitude);
+    });
+  }, [lat, long]);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
+      .then(res => res.json())
+      .then(result => {
+        setWeatherData(result)
+        console.log(result);
+      });
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+
+      <Header/>
+      <MainPage weatherData = {weatherData}/>
+    </main>
   );
 }
 

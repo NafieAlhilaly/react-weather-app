@@ -1,7 +1,21 @@
 .App {
   text-align: center;
+  /*
+  background-image: url("./images/bg-iamge.jpg");
+  background-size:cover ;
+  background-repeat: no-repeat;*/  
 }
 
+
+
+.glassmorp {
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 6.5px );
+  -webkit-backdrop-filter: blur( 6.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -9,10 +23,15 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation:  weather-icon-move 5s ease-in-out infinite;
   }
 }
 
+@keyframes weather-icon-move {
+  50% {
+    transform: translateY(-8px);
+  }
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
