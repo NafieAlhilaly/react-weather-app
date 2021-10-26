@@ -7,7 +7,7 @@ export const getIcon = (weather) => {
     } else if (weatherLC === 'sun') {
       return '☀️';
     } else if (weatherLC === 'clear') {
-      return '☀️'; // "🌈" "🌌";
+      return '☀️'; //'☀️' "🌈" "🌌";
     } else if (weatherLC === 'snow') {
       return '❄️';
     } else if (weatherLC === 'extreme') {

@@ -1,9 +1,5 @@
 .App {
-  text-align: center;
-  /*
-  background-image: url("./images/bg-iamge.jpg");
-  background-size:cover ;
-  background-repeat: no-repeat;*/  
+  background-color: #ebf3ff;
 }
 
 
@@ -54,4 +50,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.border {
+  border: 1px solid black;
 }
